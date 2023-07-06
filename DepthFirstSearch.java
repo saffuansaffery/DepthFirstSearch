@@ -1,30 +1,61 @@
+import java.util.List;
 
 public class DepthFirstSearch {
 
-    // private Graph graph;
-    // private List<Vertex> visitedVertices;
+    Graph graph = new Graph();
+    private List<Integer> visitedVertices;
+    private List<Integer> path;
+
 
     // public DepthFirstSearch(Graph graph) {
     //     this.graph = graph;
     //     visitedVertices = new java.util.LinkedList<>();
     // }
 
-    // public void search(Vertex vertex) {
-    //     if (!visitedVertices.contains(vertex)) {
-    //         visitedVertices.add(vertex);
-    //         System.out.println(vertex.getName());
-    //         for (Edge edge : vertex.getEdges()) {
-    //             search(edge.getDestination());
-    //         }
-    //     }
-    // }
+    public void dfs(Integer start, Integer destination) {
+        if (start != destination && !visitedVertices.contains(start)) {
+            visitedVertices.add(start);
+            for (int current : graph.getEdges(start)) {
+                path.add(start);
+                search(current, destination, path);
+            }
+        }
+    }
 
-    // public void search() {
-    //     for (Vertex vertex : graph.getNodes()) {
-    //         search(vertex);
-    //     }
-    // }
+    private List<Integer> search(int current, int destination, List<Integer> path) {
+        path.add(current);
+        if (current == destination) {
+            return path;
+        }
+
+        for (int neighbor = 0; neighbor < adjacencyMatrix[current].length; neighbor++) {
+            if (adjacencyMatrix[current][neighbor] == 1 && !visited[neighbor]) {
+                dfs(neighbor, destination, path);
+
+                if (!path.get(path.size() - 1).equals(destination)) {
+                    path.remove(path.size() - 1);
+                } else {
+                    return;
+                }
+            }
+        }
+    }
 }
 
+    public List<Integer> findPath(int source, int destination) {
+        int numVertices = adjacencyMatrix.length;
+        visited = new boolean[numVertices];
+        List<Integer> path = new ArrayList<>();
+
+        dfs(source, destination, path);
+
+        if (path.isEmpty()) {
+            return null;
+        } else {
+            return path;
+        }
+    }
+
+    
 
 
