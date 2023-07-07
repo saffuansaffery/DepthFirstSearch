@@ -4,40 +4,37 @@ import java.util.List;
 public class Graph {
 
     int numVertices;
-    private List<String> vertices = new ArrayList<String>();
-    int[][] adjacencyMatrix = new int[numVertices][numVertices];
+    private List<String> verticesName = new ArrayList<String>();;
+    ArrayList<Integer>[] adjacencyLists;
+
+    public Graph(){
+    }
     
-
-    // public Graph() {
-
-    // }
-
     public void addVertex(String vertex) {
-        vertices.add(vertex);
+        verticesName.add(vertex);
     }
 
-    public Integer[] getEdges(Integer vertex) {
-        Integer[] edges = new Integer[numVertices];
-        for(int i = 0; i<numVertices; i++){
-            if(adjacencyMatrix[vertex][i] == 1){
-                edges[i] = i++;
-            }
+    public void addEdge(int x, int y) {
+        adjacencyLists[x].add(y);
+    }
+
+    public void createList() {
+        adjacencyLists = new ArrayList[numVertices];
+        for (int i = 0; i < numVertices; i++) {
+            adjacencyLists[i] = new ArrayList<Integer>();
+        }
+    }
+
+    public List<Integer> getEdges(int vertex) {
+        List<Integer> edges = new ArrayList<Integer>();
+        for(int i : adjacencyLists[vertex]){
+            edges.add(i);
         }
         return edges;
     }
 
-    // public int countEdges(Integer vertex) {
-    //     int count = 0;
-    //     for(int y = 0; y < numVertices; y++){
-    //         if(adjacencyMatrix[vertex][y] == 1){
-    //             count++;
-    //         }
-    //     }
-    //     return count;
-    // }
-
-    // public void printGraph(){
-        
-    // }
+    public void print() {
+        System.out.println(adjacencyLists);
+    }
 }
 
