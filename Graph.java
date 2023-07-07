@@ -1,10 +1,12 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Graph {
 
     int numVertices;
-    private List<String> vertices;
+    private List<String> vertices = new ArrayList<String>();
     int[][] adjacencyMatrix = new int[numVertices][numVertices];
+    
 
     // public Graph() {
 

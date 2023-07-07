@@ -2,8 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DepthFirstSearch {
+
     private Graph graph;
     private List<Integer> visitedVertices;
+
+    public DepthFirstSearch() {
+        Integer current = 0;
+        Integer destination = 3;
+        List<Integer> path = new ArrayList<>();
+        System.out.println(dfs(current, destination, path));
+    }
 
     public List<Integer> dfs(Integer current, Integer destination, List<Integer> path) {
         visitedVertices = new ArrayList<>();
@@ -25,11 +33,11 @@ public class DepthFirstSearch {
                 List<Integer> result = search(next, destination, newPath);
 
                 if (result != null) {
-                    return result; // Found a valid path, return it
+                    return result; 
                 }
             }
         }
 
-        return null; // No path found
+        return null; 
     }
 }

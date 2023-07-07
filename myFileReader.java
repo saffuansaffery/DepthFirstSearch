@@ -9,12 +9,11 @@ public class myFileReader {
         Graph graph = new Graph();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 
-            String numVertices;
-            numVertices = reader.readLine();
-            graph.numVertices = Integer.parseInt(numVertices);
-
+            Integer numVertices;
+            numVertices = Integer.parseInt(reader.readLine());
+            graph.numVertices = numVertices;
             String line;
-            for(int i = 0; i < Integer.parseInt(numVertices); i++){
+            for(int i = 0; i < numVertices; i++){
                 if ((line = reader.readLine()) != null) {
                     graph.addVertex(line);
                 }
@@ -23,11 +22,12 @@ public class myFileReader {
             int x = 0, y = 0;
             while ((line = reader.readLine()) != null) {
                 for (char c : line.toCharArray()) {
-                    int edge = (int) c; 
+                    int edge = (int) c;
                     graph.adjacencyMatrix[x][y] = edge;
                     y++;
                 }
                 x++;
+                y = 0; // Reset y for the next row
             }
                         
         } catch (IOException e) {
