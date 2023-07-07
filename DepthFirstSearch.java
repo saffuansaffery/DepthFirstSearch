@@ -1,61 +1,35 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepthFirstSearch {
-
-    Graph graph = new Graph();
+    private Graph graph;
     private List<Integer> visitedVertices;
-    private List<Integer> path;
 
-
-    // public DepthFirstSearch(Graph graph) {
-    //     this.graph = graph;
-    //     visitedVertices = new java.util.LinkedList<>();
-    // }
-
-    public void dfs(Integer start, Integer destination) {
-        if (start != destination && !visitedVertices.contains(start)) {
-            visitedVertices.add(start);
-            for (int current : graph.getEdges(start)) {
-                path.add(start);
-                search(current, destination, path);
-            }
-        }
+    public List<Integer> dfs(Integer current, Integer destination, List<Integer> path) {
+        visitedVertices = new ArrayList<>();
+        return search(current, destination, path);
     }
 
-    private List<Integer> search(int current, int destination, List<Integer> path) {
-        path.add(current);
-        if (current == destination) {
-            return path;
+    private List<Integer> search(Integer current, Integer destination, List<Integer> path) {
+        if (current.equals(destination)) {
+            path.add(current);
+            return path; 
         }
 
-        for (int neighbor = 0; neighbor < adjacencyMatrix[current].length; neighbor++) {
-            if (adjacencyMatrix[current][neighbor] == 1 && !visited[neighbor]) {
-                dfs(neighbor, destination, path);
+        visitedVertices.add(current);
 
-                if (!path.get(path.size() - 1).equals(destination)) {
-                    path.remove(path.size() - 1);
-                } else {
-                    return;
+        for (Integer next : graph.getEdges(current)) {
+            if (!visitedVertices.contains(next)) {
+                List<Integer> newPath = new ArrayList<>(path);
+                newPath.add(current);
+                List<Integer> result = search(next, destination, newPath);
+
+                if (result != null) {
+                    return result; // Found a valid path, return it
                 }
             }
         }
+
+        return null; // No path found
     }
 }
-
-    public List<Integer> findPath(int source, int destination) {
-        int numVertices = adjacencyMatrix.length;
-        visited = new boolean[numVertices];
-        List<Integer> path = new ArrayList<>();
-
-        dfs(source, destination, path);
-
-        if (path.isEmpty()) {
-            return null;
-        } else {
-            return path;
-        }
-    }
-
-    
-
-

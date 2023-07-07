@@ -1,15 +1,14 @@
-import java.util.Arrays;
 import java.util.List;
 
 public class Graph {
 
-    Integer numVertices;
+    int numVertices;
     private List<String> vertices;
     int[][] adjacencyMatrix = new int[numVertices][numVertices];
 
-    public Graph() {
+    // public Graph() {
 
-    }
+    // }
 
     public void addVertex(String vertex) {
         vertices.add(vertex);
@@ -25,18 +24,18 @@ public class Graph {
         return edges;
     }
 
-    public int countEdges(Integer vertex) {
-        int count = 0;
-        for(int y = 0; y < numVertices; y++){
-            if(adjacencyMatrix[vertex][y] == 1){
-                count++;
-            }
-        }
-        return count;
-    }
+    // public int countEdges(Integer vertex) {
+    //     int count = 0;
+    //     for(int y = 0; y < numVertices; y++){
+    //         if(adjacencyMatrix[vertex][y] == 1){
+    //             count++;
+    //         }
+    //     }
+    //     return count;
+    // }
 
-    public void printGraph(){
+    // public void printGraph(){
         
-    }
+    // }
 }
 
