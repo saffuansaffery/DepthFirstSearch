@@ -6,9 +6,9 @@ public class main{
 
         fileReader file = new fileReader("input.txt", graph);
         DepthFirstSearch dfs = new DepthFirstSearch();
-        // Print print = new Print();
+        Print print = new Print();
 
-        // print.path(dfs, graph);
+        print.path(dfs, graph);
     } 
 }
 

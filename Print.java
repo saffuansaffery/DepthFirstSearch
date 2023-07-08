@@ -43,18 +43,34 @@ public class Print {
 
         showCountries();
         System.out.print("Select your location: ");
-        startLocation = scanner.nextInt();
+        startLocation = scanner.nextInt() - 1;
 
         showCountries();
         System.out.print("Select your destination: ");
-        endLocation = scanner.nextInt();
+        endLocation = scanner.nextInt() - 1;
     }
 
     public void path(DepthFirstSearch dfs, Graph graph) {
 
+        int count = 0;
         List<Integer> path = new ArrayList<>();
-        dfs.findPath(startLocation, endLocation, path, graph);
+
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
         
+        System.out.println("");
+        System.out.println("Here are the airports with connected flights to take you to your destination!");
+        System.out.println("");
+
+        for(int location : dfs.findPath(startLocation, endLocation, path, graph)){
+
+            System.out.print(graph.verticesName.get(location) + " ");
+            if (count < dfs.findPath(startLocation, endLocation, path, graph).size() - 1) {
+                System.out.print(" ~~> ");
+            }
+            count++;
+        }
+        System.out.println(" ");
     }
 }
 

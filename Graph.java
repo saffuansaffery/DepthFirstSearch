@@ -4,7 +4,7 @@ import java.util.List;
 public class Graph {
 
     int numVertices;
-    private List<String> verticesName = new ArrayList<String>();;
+    List<String> verticesName = new ArrayList<String>();;
     ArrayList<Integer>[] adjacencyLists;
 
     public void addVertex(String vertex) {
