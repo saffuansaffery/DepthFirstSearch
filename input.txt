@@ -1,11 +1,17 @@
-5
-Penang
-Kedah
-Perlis
-Perak
-Kelantan
-01100
-10010
-10010
-01101
-00010
+9
+John F. Kennedy Airport (JFK) - Atlanta, United States
+Beijing Capital Airport (PEK) - Beijing, China
+Frankfurt Airport (FRA) - Frankfurt, Germany
+Dubai International Airport (DXB) - Dubai, United Arab Emirates
+Chennai International Airport (MAA) - Chennai, India
+Charles de Gaulle Airport (CDG) - Paris, France
+Kuala Lumpur International Lumpur (KLIA) - Kuala Lumpur, Malaysia
+Tokyo Haneda Airport (HND) - Tokyo, Japan
+Incheon International Airport (ICN) - Incheon, Korea
+0110000
+1001000
+1001010
+0110100
+0001001
+0010000
+0000100

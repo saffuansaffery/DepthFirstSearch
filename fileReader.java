@@ -15,6 +15,7 @@ public class fileReader {
             for(int i = 0; i < numVertices; i++){
                 if ((line = reader.readLine()) != null) {
                     graph.addVertex(line);
+                    System.out.println(line);
                 }
             }
 
@@ -26,11 +27,10 @@ public class fileReader {
                     if(edge == 1){
                         graph.addEdge(vertexFrom, vertexTo);
                     }
-                    // graph.print();
                     vertexTo++;
                 } 
-            vertexFrom++;
-            vertexTo = 0;
+                vertexFrom++;
+                vertexTo = 0;
             }
                         
         } catch (IOException e) {

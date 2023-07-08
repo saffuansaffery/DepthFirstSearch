@@ -7,9 +7,6 @@ public class Graph {
     private List<String> verticesName = new ArrayList<String>();;
     ArrayList<Integer>[] adjacencyLists;
 
-    public Graph(){
-    }
-    
     public void addVertex(String vertex) {
         verticesName.add(vertex);
     }
@@ -31,10 +28,6 @@ public class Graph {
             edges.add(i);
         }
         return edges;
-    }
-
-    public void print() {
-        System.out.println(adjacencyLists);
     }
 }
 
