@@ -48,6 +48,13 @@ public class Print {
         showCountries();
         System.out.print("Select your destination: ");
         endLocation = scanner.nextInt() - 1;
+
+        while(endLocation == startLocation){
+            showCountries();
+            System.out.println("Try again! ");
+            System.out.print("Select your destination: ");
+            endLocation = scanner.nextInt() - 1;
+        }
     }
 
     public void path(DepthFirstSearch dfs, Graph graph) {
