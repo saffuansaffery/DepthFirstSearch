@@ -73,7 +73,10 @@ public class Print {
 
             System.out.print(graph.verticesName.get(location) + " ");
             if (count < dfs.findPath(startLocation, endLocation, path, graph).size() - 1) {
-                System.out.print(" ~~> ");
+                System.out.println("");
+                System.out.println("\t o");
+                System.out.println("\t |");
+                System.out.println("\t o");
             }
             count++;
         }
